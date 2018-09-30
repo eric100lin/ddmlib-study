@@ -1,0 +1,4 @@
+rootProject.name = 'ddmlib'
+include ':base:annotations'
+include ':base:common'
+include ':base:ddmlib'

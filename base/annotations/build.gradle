@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'java-library'
+
+group = 'com.android.tools'
+archivesBaseName = 'annotations'
+version '1.0-SNAPSHOT'
+
+project.ext.pomName = 'Android Tools Annotations library'
+project.ext.pomDesc = 'annotations used throughout the Android tools libraries.'
+
+//apply from: "$rootDir/buildSrc/base/publish.gradle"
+//apply from: "$rootDir/buildSrc/base/bintray.gradle"
+//apply from: "$rootDir/buildSrc/base/javadoc.gradle"
