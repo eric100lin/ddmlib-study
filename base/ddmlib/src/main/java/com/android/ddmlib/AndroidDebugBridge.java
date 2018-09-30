@@ -40,9 +40,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * A connection to the host-side android debug bridge (adb)
- * <p/>This is the central point to communicate with any devices, emulators, or the applications
+ * <p>This is the central point to communicate with any devices, emulators, or the applications
  * running on them.
- * <p/><b>{@link #init(boolean)} must be called before anything is done.</b>
+ * <p><b>{@link #init(boolean)} must be called before anything is done.</b>
  */
 public final class AndroidDebugBridge {
 
@@ -96,7 +96,7 @@ public final class AndroidDebugBridge {
     public interface IDebugBridgeChangeListener {
         /**
          * Sent when a new {@link AndroidDebugBridge} is connected.
-         * <p/>
+         * <p>
          * This is sent from a non UI thread.
          * @param bridge the new {@link AndroidDebugBridge} object.
          */
@@ -110,7 +110,7 @@ public final class AndroidDebugBridge {
     public interface IDeviceChangeListener {
         /**
          * Sent when the a device is connected to the {@link AndroidDebugBridge}.
-         * <p/>
+         * <p>
          * This is sent from a non UI thread.
          * @param device the new device.
          */
@@ -118,7 +118,7 @@ public final class AndroidDebugBridge {
 
         /**
          * Sent when the a device is connected to the {@link AndroidDebugBridge}.
-         * <p/>
+         * <p>
          * This is sent from a non UI thread.
          * @param device the new device.
          */
@@ -126,7 +126,7 @@ public final class AndroidDebugBridge {
 
         /**
          * Sent when a device data changed, or when clients are started/terminated on the device.
-         * <p/>
+         * <p>
          * This is sent from a non UI thread.
          * @param device the device that was updated.
          * @param changeMask the mask describing what changed. It can contain any of the following
@@ -143,7 +143,7 @@ public final class AndroidDebugBridge {
     public interface IClientChangeListener {
         /**
          * Sent when an existing client information changed.
-         * <p/>
+         * <p>
          * This is sent from a non UI thread.
          * @param client the updated client.
          * @param changeMask the bit mask describing the changed properties. It can contain
@@ -173,7 +173,7 @@ public final class AndroidDebugBridge {
 
     /**
      * Initializes the <code>ddm</code> library.
-     * <p/>This must be called once <b>before</b> any call to
+     * <p>This must be called once <b>before</b> any call to
      * {@link #createBridge(String, boolean)}.
      * <p>The library can be initialized in 2 ways:
      * <ul>
@@ -184,13 +184,13 @@ public final class AndroidDebugBridge {
      * devices. The applications are left untouched, letting other tools built on
      * <code>ddmlib</code> to connect a debugger to them.</li>
      * </ul>
-     * <p/><b>Only one tool can run in mode 1 at the same time.</b>
-     * <p/>Note that mode 1 does not prevent debugging of applications running on devices. Mode 1
+     * <p><b>Only one tool can run in mode 1 at the same time.</b>
+     * <p>Note that mode 1 does not prevent debugging of applications running on devices. Mode 1
      * lets debuggers connect to <code>ddmlib</code> which acts as a proxy between the debuggers and
      * the applications to debug. See {@link Client#getDebuggerListenPort()}.
-     * <p/>The preferences of <code>ddmlib</code> should also be initialized with whatever default
+     * <p>The preferences of <code>ddmlib</code> should also be initialized with whatever default
      * values were changed from the default values.
-     * <p/>When the application quits, {@link #terminate()} should be called.
+     * <p>When the application quits, {@link #terminate()} should be called.
      * @param clientSupport Indicates whether the library should enable the monitoring and
      *                      interaction with applications running on the devices.
      * @see AndroidDebugBridge#createBridge(String, boolean)
@@ -255,9 +255,9 @@ public final class AndroidDebugBridge {
 
     /**
      * Creates a {@link AndroidDebugBridge} that is not linked to any particular executable.
-     * <p/>This bridge will expect adb to be running. It will not be able to start/stop/restart
+     * <p>This bridge will expect adb to be running. It will not be able to start/stop/restart
      * adb.
-     * <p/>If a bridge has already been started, it is directly returned with no changes (similar
+     * <p>If a bridge has already been started, it is directly returned with no changes (similar
      * to calling {@link #getBridge()}).
      * @return a connected bridge.
      */
@@ -299,7 +299,7 @@ public final class AndroidDebugBridge {
 
     /**
      * Creates a new debug bridge from the location of the command line tool.
-     * <p/>
+     * <p>
      * Any existing server will be disconnected, unless the location is the same and
      * <code>forceNewBridge</code> is set to false.
      * @param osLocation the location of the command line tool 'adb'
@@ -357,8 +357,8 @@ public final class AndroidDebugBridge {
 
     /**
      * Disconnects the current debug bridge, and destroy the object.
-     * <p/>This also stops the current adb host server.
-     * <p/>
+     * <p>This also stops the current adb host server.
+     * <p>
      * A new object will have to be created with {@link #createBridge(String, boolean)}.
      */
     public static void disconnectBridge() {
@@ -491,11 +491,11 @@ public final class AndroidDebugBridge {
 
     /**
      * Returns whether the bridge has acquired the initial list from adb after being created.
-     * <p/>Calling {@link #getDevices()} right after {@link #createBridge(String, boolean)} will
+     * <p>Calling {@link #getDevices()} right after {@link #createBridge(String, boolean)} will
      * generally result in an empty list. This is due to the internal asynchronous communication
      * mechanism with <code>adb</code> that does not guarantee that the {@link IDevice} list has been
      * built before the call to {@link #getDevices()}.
-     * <p/>The recommended way to get the list of {@link IDevice} objects is to create a
+     * <p>The recommended way to get the list of {@link IDevice} objects is to create a
      * {@link IDeviceChangeListener} object.
      */
     public boolean hasInitialDeviceList() {
@@ -739,11 +739,11 @@ public final class AndroidDebugBridge {
 
     /**
      * Notify the listener of a new {@link IDevice}.
-     * <p/>
+     * <p>
      * The notification of the listeners is done in a synchronized block. It is important to
      * expect the listeners to potentially access various methods of {@link IDevice} as well as
      * {@link #getDevices()} which use internal locks.
-     * <p/>
+     * <p>
      * For this reason, any call to this method from a method of {@link DeviceMonitor},
      * {@link IDevice} which is also inside a synchronized block, should first synchronize on
      * the {@link AndroidDebugBridge} lock. Access to this lock is done through {@link #getLock()}.
@@ -775,11 +775,11 @@ public final class AndroidDebugBridge {
 
     /**
      * Notify the listener of a disconnected {@link IDevice}.
-     * <p/>
+     * <p>
      * The notification of the listeners is done in a synchronized block. It is important to
      * expect the listeners to potentially access various methods of {@link IDevice} as well as
      * {@link #getDevices()} which use internal locks.
-     * <p/>
+     * <p>
      * For this reason, any call to this method from a method of {@link DeviceMonitor},
      * {@link IDevice} which is also inside a synchronized block, should first synchronize on
      * the {@link AndroidDebugBridge} lock. Access to this lock is done through {@link #getLock()}.
@@ -811,11 +811,11 @@ public final class AndroidDebugBridge {
 
     /**
      * Notify the listener of a modified {@link IDevice}.
-     * <p/>
+     * <p>
      * The notification of the listeners is done in a synchronized block. It is important to
      * expect the listeners to potentially access various methods of {@link IDevice} as well as
      * {@link #getDevices()} which use internal locks.
-     * <p/>
+     * <p>
      * For this reason, any call to this method from a method of {@link DeviceMonitor},
      * {@link IDevice} which is also inside a synchronized block, should first synchronize on
      * the {@link AndroidDebugBridge} lock. Access to this lock is done through {@link #getLock()}.
@@ -847,11 +847,11 @@ public final class AndroidDebugBridge {
 
     /**
      * Notify the listener of a modified {@link Client}.
-     * <p/>
+     * <p>
      * The notification of the listeners is done in a synchronized block. It is important to
      * expect the listeners to potentially access various methods of {@link IDevice} as well as
      * {@link #getDevices()} which use internal locks.
-     * <p/>
+     * <p>
      * For this reason, any call to this method from a method of {@link DeviceMonitor},
      * {@link IDevice} which is also inside a synchronized block, should first synchronize on
      * the {@link AndroidDebugBridge} lock. Access to this lock is done through {@link #getLock()}.
@@ -1083,7 +1083,7 @@ public final class AndroidDebugBridge {
 
     /**
      * Returns the singleton lock used by this class to protect any access to the listener.
-     * <p/>
+     * <p>
      * This includes adding/removing listeners, but also notifying listeners of new bridges,
      * devices, and clients.
      */

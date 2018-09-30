@@ -40,7 +40,7 @@ public class GrabProcessOutput {
          * error code from the process.
          * In some rare cases and depending on the OS, the process might not have
          * finished dumping data into stdout/stderr.
-         * <p/>
+         * <p>
          * Use this when you don't particularly care for the output but instead
          * care for the return code of the executed process.
          */
@@ -50,7 +50,7 @@ public class GrabProcessOutput {
          * threads to complete.
          * In this mode, {@link GrabProcessOutput#grabProcessOutput} returns the
          * error code from the process.
-         * <p/>
+         * <p>
          * Use this one when capturing all the output from the process is important.
          */
         WAIT_FOR_READERS,

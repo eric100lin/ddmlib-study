@@ -28,11 +28,11 @@ import java.io.InputStream;
  * this makes it possible to ignore close operations or have them perform a
  * {@link InputStream#reset()} instead (if supported by the underlying stream)
  * or plain ignored.
- * <p/>
+ * <p>
  * This is useful to pass a stream to an XML parser or validator that automatically
  * closes its input stream -- which makes it impossible to validate a stream and then
  * parse it without reacquiring the stream.
- * <p/>
+ * <p>
  * Example of usage:
  * <pre>
  * // Get a stream that supports mark/reset in case the original does not

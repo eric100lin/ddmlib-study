@@ -176,7 +176,6 @@ abstract class ChunkHandler {
      * Check that the client is opened with the proper debugger port for the
      * specified application name, and if not, reopen it.
      * @param client
-     * @param uiThread
      * @param appName
      * @return
      */

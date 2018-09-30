@@ -234,11 +234,11 @@ public final class AndroidManifest {
 
     /**
      * Returns the value of the minSdkVersion attribute.
-     * <p/>
+     * <p>
      * If the attribute is set with an int value, the method returns an Integer object.
-     * <p/>
+     * <p>
      * If the attribute is set with a codename, it returns the codename as a String object.
-     * <p/>
+     * <p>
      * If the attribute is not set, it returns null.
      *
      * @param manifestFile the manifest file to read the attribute from.
@@ -264,11 +264,11 @@ public final class AndroidManifest {
 
     /**
      * Returns the value of the targetSdkVersion attribute.
-     * <p/>
+     * <p>
      * If the attribute is set with an int value, the method returns an Integer object.
-     * <p/>
+     * <p>
      * If the attribute is set with a codename, it returns the codename as a String object.
-     * <p/>
+     * <p>
      * If the attribute is not set, it returns null.
      *
      * @param manifestFile the manifest file to read the attribute from.

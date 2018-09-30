@@ -31,9 +31,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * This represents a single client, usually a Dalvik VM process.
- * <p/>This class gives access to basic client information, as well as methods to perform actions
+ * <p>This class gives access to basic client information, as well as methods to perform actions
  * on the client.
- * <p/>More detailed information, usually updated in real time, can be access through the
+ * <p>More detailed information, usually updated in real time, can be access through the
  * {@link ClientData} class. Each <code>Client</code> object has its own <code>ClientData</code>
  * accessed through {@link #getClientData()}.
  */
@@ -345,7 +345,7 @@ public class Client {
     /**
      * Sends a request to the VM to send the enable status of the method profiling.
      * This is asynchronous.
-     * <p/>The allocation status can be accessed by {@link ClientData#getAllocationStatus()}.
+     * <p>The allocation status can be accessed by {@link ClientData#getAllocationStatus()}.
      * The notification that the new status is available will be received through
      * {@link IClientChangeListener#clientChanged(Client, int)} with a <code>changeMask</code>
      * containing the mask {@link #CHANGE_HEAP_ALLOCATION_STATUS}.
@@ -361,7 +361,7 @@ public class Client {
 
     /**
      * Enables or disables the thread update.
-     * <p/>If <code>true</code> the VM will be able to send thread information. Thread information
+     * <p>If <code>true</code> the VM will be able to send thread information. Thread information
      * must be requested with {@link #requestThreadUpdate()}.
      * @param enabled the enable flag.
      */
@@ -390,7 +390,7 @@ public class Client {
 
     /**
      * Sends a thread update request. This is asynchronous.
-     * <p/>The thread info can be accessed by {@link ClientData#getThreads()}. The notification
+     * <p>The thread info can be accessed by {@link ClientData#getThreads()}. The notification
      * that the new data is available will be received through
      * {@link IClientChangeListener#clientChanged(Client, int)} with a <code>changeMask</code>
      * containing the mask {@link #CHANGE_THREAD_DATA}.
@@ -401,9 +401,9 @@ public class Client {
 
     /**
      * Sends a thread stack trace update request. This is asynchronous.
-     * <p/>The thread info can be accessed by {@link ClientData#getThreads()} and
+     * <p>The thread info can be accessed by {@link ClientData#getThreads()} and
      * {@link ThreadInfo#getStackTrace()}.
-     * <p/>The notification that the new data is available
+     * <p>The notification that the new data is available
      * will be received through {@link IClientChangeListener#clientChanged(Client, int)}
      * with a <code>changeMask</code> containing the mask {@link #CHANGE_THREAD_STACKTRACE}.
      */
@@ -413,9 +413,9 @@ public class Client {
 
     /**
      * Enables or disables the heap update.
-     * <p/>If <code>true</code>, any GC will cause the client to send its heap information.
-     * <p/>The heap information can be accessed by {@link ClientData#getVmHeapData()}.
-     * <p/>The notification that the new data is available
+     * <p>If <code>true</code>, any GC will cause the client to send its heap information.
+     * <p>The heap information can be accessed by {@link ClientData#getVmHeapData()}.
+     * <p>The notification that the new data is available
      * will be received through {@link IClientChangeListener#clientChanged(Client, int)}
      * with a <code>changeMask</code> containing the value {@link #CHANGE_HEAP_DATA}.
      * @param enabled the enable flag
@@ -478,7 +478,7 @@ public class Client {
 
     /**
      * Sends a native heap update request. this is asynchronous.
-     * <p/>The native heap info can be accessed by {@link ClientData#getNativeAllocationList()}.
+     * <p>The native heap info can be accessed by {@link ClientData#getNativeAllocationList()}.
      * The notification that the new data is available will be received through
      * {@link IClientChangeListener#clientChanged(Client, int)} with a <code>changeMask</code>
      * containing the mask {@link #CHANGE_NATIVE_HEAP_DATA}.
@@ -496,7 +496,7 @@ public class Client {
 
     /**
      * Enables or disables the Allocation tracker for this client.
-     * <p/>If enabled, the VM will start tracking allocation information. A call to
+     * <p>If enabled, the VM will start tracking allocation information. A call to
      * {@link #requestAllocationDetails()} will make the VM sends the information about all the
      * allocations that happened between the enabling and the request.
      * @param enable
@@ -513,7 +513,7 @@ public class Client {
     /**
      * Sends a request to the VM to send the enable status of the allocation tracking.
      * This is asynchronous.
-     * <p/>The allocation status can be accessed by {@link ClientData#getAllocationStatus()}.
+     * <p>The allocation status can be accessed by {@link ClientData#getAllocationStatus()}.
      * The notification that the new status is available will be received through
      * {@link IClientChangeListener#clientChanged(Client, int)} with a <code>changeMask</code>
      * containing the mask {@link #CHANGE_HEAP_ALLOCATION_STATUS}.
@@ -530,7 +530,7 @@ public class Client {
      * Sends a request to the VM to send the information about all the allocations that have
      * happened since the call to {@link #enableAllocationTracker(boolean)} with <var>enable</var>
      * set to <code>null</code>. This is asynchronous.
-     * <p/>The allocation information can be accessed by {@link ClientData#getAllocations()}.
+     * <p>The allocation information can be accessed by {@link ClientData#getAllocations()}.
      * The notification that the new data is available will be received through
      * {@link IClientChangeListener#clientChanged(Client, int)} with a <code>changeMask</code>
      * containing the mask {@link #CHANGE_HEAP_ALLOCATIONS}.

@@ -24,7 +24,7 @@ import java.util.Locale;
 
 /**
  * Log class that mirrors the API in main Android sources.
- * <p/>Default behavior outputs the log to {@link System#out}. Use
+ * <p>Default behavior outputs the log to {@link System#out}. Use
  * {@link #setLogOutput(com.android.ddmlib.Log.ILogOutput)} to redirect the log somewhere else.
  */
 public final class Log {
@@ -77,7 +77,7 @@ public final class Log {
 
         /**
          * Returns the {@link LogLevel} enum matching the specified letter.
-         * <p/>
+         * <p>
          * The letter is passed as a {@link String} argument, but only the first character
          * is used. 
          * @param letter the letter matching a <code>LogLevel</code> enum
@@ -247,10 +247,10 @@ public final class Log {
 
     /**
      * Show hex dump.
-     * <p/>
+     * <p>
      * Local addition.  Output looks like:
      * 1230- 00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff  0123456789abcdef
-     * <p/>
+     * <p>
      * Uses no string concatenation; creates one String object per line.
      */
     static void hexDump(String tag, LogLevel level, byte[] data, int offset, int length) {

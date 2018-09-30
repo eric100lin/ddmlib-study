@@ -22,7 +22,7 @@ import java.io.IOException;
 
 /**
  * Interface to read a line from the {@link System#in} input stream.
- * <p/>
+ * <p>
  * The interface also implements {@link ILogger} since code that needs to ask for
  * a command-line input will most likely also want to use {@link ILogger#info(String, Object...)}
  * to print information such as an input prompt.
@@ -31,7 +31,7 @@ public interface IReaderLogger extends ILogger {
 
     /**
      * Reads a line from {@link System#in}.
-     * <p/>
+     * <p>
      * This call is blocking and should only be called from command-line enabled applications.
      *
      * @param inputBuffer A non-null buffer where to place the input.
